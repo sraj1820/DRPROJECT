@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<div class="car_container">
+  <!-- Iterate over object_list -->
+  {% for object in object_list %}
+  <!-- Display Objects -->
+
+  <div class="card" style="width: 18rem">
+    <img src="..." class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{object.name}} {{object.make}}</h5>
+      <h6 class="card-title">
+        {{object.year}} - {% if object.new %} brand new {% else%} used {%endif%}
+      </h6>
+      <p class="card-text"></p>
+      <a href="{% url 'detail' object.id %}" class="btn btn-primary"
+        >See details</a
+      >
+    </div>
+  </div>
+
+  <!-- If object_list is empty  -->
+  {% empty %}
+  <li>No objects yet.</li>
+  {% endfor %}
+</div>
+{% endblock %}
