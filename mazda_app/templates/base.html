@@ -40,13 +40,15 @@
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
+              <a class="nav-link active" aria-current="page" href="{% url 'all_cars' %}"
                 >All Cars</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">My Cars</a>
+              <a class="nav-link" href="{% url 'my_cars' %}">My Cars</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="{% url 'cars_create' %}">Add a Car </a></li>
             <li class="nav-item">
               <a class="nav-link"  href="{% url 'logout' %}">Log Out</a></li>
             {%else%}
