@@ -12,18 +12,19 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
 # Create your views here.
 
 class HomeListView(ListView):
      model = Car
      template_name = 'home.html'
 
-class carCreate(LoginRequiredMixin, CreateView):
-      model = Car
-      fields = ['name', 'make', 'car_model', 'year', 'mileage', 'color', 'new']
+class CarCreate(LoginRequiredMixin, CreateView):
+     model = Car
+     fields = ['name', 'make', 'car_model', 'year', 'mileage', 'color', 'new','company']
+     success_url = ('/cars/')
+     template_name = 'mazda_app/car_form.html'
 
-class CarListView(LoginRequiredMixin, ListView):
+class CarListView(LoginRequiredMixin,ListView):
      model = Car
      serializer_class = carSerializer
      template_name = 'car_list.html'
@@ -35,10 +36,14 @@ def car_delete(request, car_id):
      return redirect('/cars/')
 
 
-class CarUpdate(LoginRequiredMixin, UpdateView):
+class CarUpdate(LoginRequiredMixin,UpdateView):
      model = Car
      fields =['year', 'mileage', 'color', 'new']
      success_url = ('/cars/')
+
+class MyCarsView(LoginRequiredMixin, ListView):
+     model = Car
+     template_name = 'my_cars.html'
 
 
 @login_required
