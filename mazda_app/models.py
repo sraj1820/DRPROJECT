@@ -13,21 +13,13 @@ class Mazda(models.Model):
     class Meta:
         verbose_name_plural = 'mazda'
 
-class Mazda(models.Model):
-    name = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
-    reg_num = models.CharField(max_length=10)
-
-    def __str__(self):
-        return self.name
-    class Meta:
-        verbose_name_plural = 'mazda'
 # cat
 class Users(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
+    
     
     def __str__(self):
         return self.name
@@ -45,12 +37,21 @@ class Car(models.Model):
     new = models.BooleanField(default = False)
     company = models.ForeignKey(Mazda, on_delete=models.CASCADE)
     users = models.ManyToManyField(Users)
+    
 
      
     def __str__(self):
         return self.make
     class Meta:
         verbose_name_plural = 'car'
+
+#photos 
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Photo for car_id: {self.car_id} @{self.url}"
 
 
 

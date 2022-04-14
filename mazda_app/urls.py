@@ -11,6 +11,8 @@ urlpatterns =[
     path('cars/<int:pk>/update/', views.CarUpdate.as_view(), name='car_update'),
     path('cars/create/', views.CarCreate.as_view(), name='cars_create'),
     path('accounts/signup/', views.signup, name='signup'),
+    path('cars/<int:car_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('cars/<int:car_id>/assoc_user/<int:users_id/', views.assoc_user, name='assoc_user')    
 
 
 ]
