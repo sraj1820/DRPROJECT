@@ -5,8 +5,14 @@
   <!-- Display Objects -->
 
   <div class="card" style="width: 18rem">
-    <img src="..." class="card-img-top" alt="..." />
+    
+    
     <div class="card-body">
+      {% for photo in object.photo_set.all %}
+      <img src="{{photo.url}}" style="max-width:100px" class="card-img-top" alt="..." />
+    {% empty %}
+    <img src = "https://1ijylmozio83m2nkr2v293mp-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/Mazda-Logo-Feat.-Image1.jpg" style="max-width:100px">
+    {% endfor %}
       <h5 class="card-title">{{object.name}} {{object.make}}</h5>
       <h6 class="card-title">
         {{object.year}} - {% if object.new %} brand new {% else%} used {%endif%}
@@ -15,6 +21,11 @@
       <a href="{% url 'detail' object.id %}" class="btn btn-primary"
         >See details</a
       >
+      <form action="" method="post">
+        
+      <button class="likeBTN"> Like</button>
+      {% csrf_token %}
+      </form>
     </div>
   </div>
 

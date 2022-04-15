@@ -1,6 +1,13 @@
 {% extends 'base.html' %} {% block content %}
+
+
+
 <div class="detailContainer">
-<div class="image"><img src="" alt=""></div>
+  {% for photo in car.photo_set.all %}
+  <img class="responsive-img card-panel" src="{{photo.url}}" style="max-width:100px" >
+{% empty %}
+  <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+{% endfor %}
 
 <table class="table">
     <thead>
@@ -34,6 +41,13 @@
   <a href="{% url 'car_update' car.id%}" class = 'updateCarBTN BTN'> Edit Car </a>
 
   </div>
+
+<form action="{% url 'add_photo' car.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+  {% csrf_token %}
+  <input type="file" name="photo-file">
+  <br><br>
+  <input type="submit" class="btn" value="Upload Photo">
+</form>
 
 
 

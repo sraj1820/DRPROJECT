@@ -11,4 +11,11 @@ urlpatterns =[
     path('cars/<int:pk>/update/', views.CarUpdate.as_view(), name='car_update'),
     path('cars/create/', views.CarCreate.as_view(), name='cars_create'),
     path('accounts/signup/', views.signup, name='signup'),
+<<<<<<< HEAD
+=======
+    path('cars/<int:car_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('cars/<int:car_id>/assoc_user/<int:users_id/', views.assoc_user, name='assoc_user')    
+
+
+>>>>>>> 6050ba78d32e6f38e4aaa4d5ceacc85d377b78d9
 ]
