@@ -1,39 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+<h1>My Cars</h1>
 
-{% extends 'base.html' %}
-{% block content %}
-    <h1>My Cars</h1>
+<div class="car_container">
+  <!-- Iterate over liked_cars -->
+  {% for car in liked_cars%}
 
-    <div class="car_container">
-        <!-- Iterate over liked_cars -->
-        {% for car in liked_cars%}
-   
-      
-        <div class="card" style="width: 18rem">
-          
-          
-          <div class="card-body">
-            {% for photo in car.photo_set.all %}
-            <img src="{{photo.url}}" style="max-width:100px" class="card-img-top" alt="..." />
-          {% empty %}
-          <img src = "https://1ijylmozio83m2nkr2v293mp-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/Mazda-Logo-Feat.-Image1.jpg" style="max-width:100px">
-          {% endfor %}
-            <h5 class="card-title">{{car.name}} {{car.make}}</h5>
-            <h6 class="card-title">
-              {{car.year}} - {% if car.new %} brand new {% else%} used {%endif%}
-            </h6>
-            <p class="card-text"></p>
-            <a href="{% url 'detail' car.id %}" class="btn btn-primary"
-              >See details</a
-            >
-           
-          </div>
-        </div>
-      
-        <!-- If car_list is empty  -->
-        {% empty %}
-        <li>No cars yet.</li>
-        {% endfor %}
-      </div>
+  <div class="card" style="width: 18rem">
+    <div class="card-body">
+      {% for photo in car.photo_set.all %}
+      <img src="{{photo.url}}" class="card-img-top" alt="..." />
+      {% empty %}
+      <img
+        src="https://1ijylmozio83m2nkr2v293mp-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/Mazda-Logo-Feat.-Image1.jpg"
+      />
+      {% endfor %}
+      <h5 class="card-title">{{car.name}} {{car.make}}</h5>
+      <h6 class="card-title">
+        {{car.year}} - {% if car.new %} brand new {% else%} used {%endif%}
+      </h6>
+      <p class="card-text"></p>
+      <a href="{% url 'detail' car.id %}" class="btn btn-primary"
+        >See details</a
+      >
+    </div>
+  </div>
 
+  <!-- If car_list is empty  -->
+  {% empty %}
+  <li>No cars yet.</li>
+  {% endfor %}
+</div>
 
 {% endblock %}

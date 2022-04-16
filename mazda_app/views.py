@@ -75,16 +75,16 @@ def signup(request):
      return render(request, 'registration/signup.html', context)
 
 
-def assoc_user(request, car_id, users_id):
-     # liked_cars_list = list()
-     # liked_cars = tuple(liked_cars_list)
+# def assoc_user(request, car_id, users_id):
+#      # liked_cars_list = list()
+#      # liked_cars = tuple(liked_cars_list)
      
-     liked_car= Car.objects.get(id=car_id).users.add(users_id)
-     # liked_cars = list(liked_cars)
-     # liked_cars.append(liked_car)
-     # liked_cars= tuple(liked_cars)
-     # print(liked_cars)
-     return render(request, 'my_cars.html', {liked_cars:liked_cars})
+#      liked_car= Car.objects.get(id=car_id).users.add(users_id)
+#      # liked_cars = list(liked_cars)
+#      # liked_cars.append(liked_car)
+#      # liked_cars= tuple(liked_cars)
+#      # print(liked_cars)
+#      return render(request, 'my_cars.html', {liked_cars:liked_cars})
 
 def add_photo(request, car_id):
     # photo-file will be the "name" attribute on the <input type="file">
