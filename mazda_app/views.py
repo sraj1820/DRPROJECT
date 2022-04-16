@@ -86,6 +86,7 @@ def signup(request):
 #      # print(liked_cars)
 #      return render(request, 'my_cars.html', {liked_cars:liked_cars})
 
+@login_required
 def add_photo(request, car_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
