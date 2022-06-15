@@ -13,7 +13,7 @@ class Mazda(models.Model):
     class Meta:
         verbose_name_plural = 'mazda'
 
-# cat
+# users
 class Users(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
@@ -26,7 +26,7 @@ class Users(models.Model):
     class Meta:
         verbose_name_plural = 'user'
 
-# toys
+# cars
 class Car(models.Model):
     name = models.CharField(max_length=100)
     make = models.CharField(max_length=100)
