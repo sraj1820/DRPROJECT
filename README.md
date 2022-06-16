@@ -16,7 +16,7 @@ All Cars Screen
 
 ### Technologies Used
 
-This game was created using Python/Django/PostgreSQL/HTML/CSS
+This application was created using Python/Django/PostgreSQL/HTML/CSS
 
 ### Get Started
 Create an account using the signup page. Once completed you are able to login.
