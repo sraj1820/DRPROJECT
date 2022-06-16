@@ -19,10 +19,7 @@ All Cars Screen
 This game was created using Python/Django/PostgreSQL/HTML/CSS
 
 ### Get Started
-
-Click on the following link to launch the App. Please sign up and log in to get started.
-[Mazda App]()
-
+Create an account using the signup page. Once completed you are able to login.
 Once signed in, you can add a new car and view existing cars. The ability to update existing cars and delete them is also available.
 
 ### Next Steps
