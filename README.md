@@ -23,7 +23,7 @@ Create an account using the signup page. Once completed you are able to login.
 Once signed in, you can add a new car and view existing cars. The ability to update existing cars and delete them is also available.
 
 
-###Current Features
+### Current Features
 - Ability to sign up and login using a custom name and password
 - Ability to create a new car and upload a picture of it as well as any necessary details
 - Ability to update the car and delete if necessary
